@@ -50,10 +50,11 @@ class Window(QWidget):
     def search(self):
         # get user input 
         query = self.search_field.text()
-        self.results_text.setText("Searching...")
+        self.results_text.setText("<h2>Searching...</h2>")
 
         # make API call 
         results = controller.make_call(query)
+
 
         # display results
         self.results_text.setText(results)
