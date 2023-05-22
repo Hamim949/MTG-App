@@ -35,11 +35,35 @@ def process_results(text):
     # loop through results to get display of each card
     for card in results:
         name = card.get("name")
-        result_text += "<h3>" + name + "</h3>\n"
+        result_text += "<h3>" + name + "</h3>"
+        manaCost = card.get("manaCost")
+        result_text += "<h3>" + manaCost + "</h3>"
+        cmc = card.get("cmc")
+        result_text += "<h3>" + cmc + "</h3>"
+        colors = card.get("colors")
+        result_text += "<h3>" + colors + "</h3>"
+        colorIdentity = card.get("colorIdentity")
+        result_text += "<h3>" + colorIdentity + "</h3>"
+        type = card.get("type")
+        result_text += "<h3>" + type + "</h3>"
+        supertypes = card.get("supertypes")
+        result_text += "<h3>" + supertypes + "</h3>"
+        rarity = card.get("rarity")
+        result_text += "<h3>" + rarity + "</h3>"
+        set = card.get("set")
+        result_text += "<h3>" + set + "</h3>"
+        setName = card.get("setName")
+        result_text += "<h3>" + setName + "</h3>"
+        text = card.get("text")
+        result_text += "<h3>" + text + "</h3>"
+        layout = card.get("layout")
+        result_text += "<h3>" + layout + "</h3>"
+        loyalty = card.get("loyalty")
+        result_text += "<h3>" + loyalty + "</h3>\n"
     return result_text
 
 
-def get_top_results(text, num=2):
+def get_top_results(text, num=5):
     text = str(text)
     results_dict = json.loads(text)
     cards = results_dict.get("cards")

@@ -1,11 +1,38 @@
 from PyQt6.QtWidgets import (QApplication, QVBoxLayout, QWidget, 
                              QLabel, QHBoxLayout, QLineEdit, 
-                            QPushButton, QTextEdit)
+                            QComboBox, QPushButton, QTextEdit)
 from PyQt6.QtGui import QIcon, QFont
 from PyQt6.QtCore import Qt
 import sys
 import controller
  
+card_types = [
+    "Artifact",
+    "Conspiracy",
+    "Creature",
+    "Dragon",
+    "Elemental",
+    "Enchantment",
+    "Goblin",
+    "Hero",
+    "instant",
+    "Instant",
+    "Jaguar",
+    "Knights",
+    "Land",
+    "Phenomenon",
+    "Plane",
+    "Planeswalker",
+    "Scheme",
+    "Sorcery",
+    "Stickers",
+    "Summon",
+    "Tribal",
+    "Universewalker",
+    "Vanguard",
+    "Wolf"
+]
+
 class Window(QWidget):
     def __init__(self):
         super().__init__()
@@ -28,7 +55,8 @@ class Window(QWidget):
         description_label.setFont(QFont("Consolas", 14))
 
         search_layout = QHBoxLayout()
-        self.search_field = QLineEdit()
+        self.search_field = QComboBox()
+        self.search_field.addItems(card_types)
         self.search_field.setFont(QFont("Consolas", 12))
 
 
@@ -50,7 +78,7 @@ class Window(QWidget):
     def search(self):
         # get user input 
         query = self.search_field.text()
-        self.results_text.setText("<h2>Searching...</h2>")
+        self.results_text.setText("<h2>Searching...</h2>  ")
 
         # make API call 
         results = controller.make_call(query)
@@ -70,31 +98,4 @@ def main():
 if __name__ == "__main__":
     main()
 
-card_types = {
-"types": [
-"Artifact",
-"Conspiracy",
-"Creature",
-"Dragon",
-"Elemental",
-"Enchantment",
-"Goblin",
-"Hero",
-"instant",
-"Instant",
-"Jaguar",
-"Knights",
-"Land",
-"Phenomenon",
-"Plane",
-"Planeswalker",
-"Scheme",
-"Sorcery",
-"Stickers",
-"Summon",
-"Tribal",
-"Universewalker",
-"Vanguard",
-"Wolf"
-]
-}
+
