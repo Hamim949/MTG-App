@@ -35,31 +35,44 @@ def process_results(text):
     # loop through results to get display of each card
     for card in results:
         name = card.get("name")
-        result_text += "<h3>" + name + "</h3>"
+        if name:
+            result_text += "<h2>" + str(name) + "</h2>"
         manaCost = card.get("manaCost")
-        result_text += "<h3>" + manaCost + "</h3>"
+        if manaCost:
+            result_text += "<h3>" + str(manaCost) + "</h3>"
         cmc = card.get("cmc")
-        result_text += "<h3>" + cmc + "</h3>"
+        if cmc:
+            result_text += "<h3>" + str(cmc) + "</h3>"
         colors = card.get("colors")
-        result_text += "<h3>" + colors + "</h3>"
+        if colors: 
+            result_text += "<h3>" + str(colors) + "</h3>"
         colorIdentity = card.get("colorIdentity")
-        result_text += "<h3>" + colorIdentity + "</h3>"
+        if colorIdentity:
+            result_text += "<h3>" + str(colorIdentity) + "</h3>"
         type = card.get("type")
-        result_text += "<h3>" + type + "</h3>"
+        if type:
+            result_text += "<h3>" + str(type) + "</h3>"
         supertypes = card.get("supertypes")
-        result_text += "<h3>" + supertypes + "</h3>"
+        if supertypes:
+            result_text += "<h3>" + str(supertypes) + "</h3>"
         rarity = card.get("rarity")
-        result_text += "<h3>" + rarity + "</h3>"
+        if rarity:
+            result_text += "<h3>" + str(rarity) + "</h3>"
         set = card.get("set")
-        result_text += "<h3>" + set + "</h3>"
+        if set:
+            result_text += "<h3>" + str(set) + "</h3>"
         setName = card.get("setName")
-        result_text += "<h3>" + setName + "</h3>"
+        if setName:
+            result_text += "<h3>" + str(setName) + "</h3>"
         text = card.get("text")
-        result_text += "<h3>" + text + "</h3>"
+        if text:
+            result_text += "<p>" + str(text) + "</p>"
         layout = card.get("layout")
-        result_text += "<h3>" + layout + "</h3>"
+        if layout:
+            result_text += "<h3>" + str(layout) + "</h3>"
         loyalty = card.get("loyalty")
-        result_text += "<h3>" + loyalty + "</h3>\n"
+        if loyalty:
+            result_text += "<h3>" + str(loyalty) + "</h3>\n"
     return result_text
 
 

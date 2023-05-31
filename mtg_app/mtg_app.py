@@ -77,7 +77,7 @@ class Window(QWidget):
     
     def search(self):
         # get user input 
-        query = self.search_field.text()
+        query = self.search_field.currentText()
         self.results_text.setText("<h2>Searching...</h2>  ")
 
         # make API call 
